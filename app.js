@@ -4,9 +4,9 @@ document.addEventListener('DOMContentLoaded', () =>{
   const grid = document.querySelector('.grid')
   const width = 18
   const squares = []
-  const snake = [171,172,173,174]
+  const snake = [111,112,113,114]
   let direction = 'right'
-
+  // const fuel = [171]
 
 
 
@@ -15,6 +15,13 @@ document.addEventListener('DOMContentLoaded', () =>{
     squares.push(square)
     grid.appendChild(square)
   }
+  function fuel(){
+    const chosenSquare = squares[Math.floor(Math.random() * squares.length)]
+    chosenSquare.classList.add('fuel')
+    console.log(chosenSquare)
+  }
+
+  fuel()
 
   function drawSnake() {
     console.log('draw')
@@ -33,6 +40,8 @@ document.addEventListener('DOMContentLoaded', () =>{
           snake[0] >= width * (width - 1 )  && direction === 'down') {
       return false
     }
+
+
     console.log(snake)
     eraseSnake()
     switch(direction){
