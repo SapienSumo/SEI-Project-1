@@ -7,7 +7,8 @@ document.addEventListener('DOMContentLoaded', () =>{
   const squares = []
   const snake = [113,114,115]
   let scoreBoard = 0
-  const snakeMoving = setInterval(moveSnake, 100)
+  let snakeSpeed = 150
+  //const snakeMoving = setInterval(moveSnake, 100)
   let direction = 'right'
   //const chosenSquare = 0
 
@@ -43,13 +44,6 @@ document.addEventListener('DOMContentLoaded', () =>{
   // define movement of the snake/directions
 
   function moveSnake() {
-    if (squares[snake[0]].classList.contains('fuel')) {
-      scoreBoard++
-      scores.innerText = scoreBoard
-      squares[snake[0]].classList.remove('fuel')
-      snake.unshift(snake[0])
-      fuel()
-    }
 
     if (snake[0] % width === 0 && direction === 'left' ||
           snake[0] % width === width -1  && direction === 'right' ||
@@ -75,9 +69,23 @@ document.addEventListener('DOMContentLoaded', () =>{
         break
       case 'down': moveDown()
     }
+
+    if (squares[snake[0]].classList.contains('fuel')) {
+      scoreBoard++
+      snakeSpeed -= 10
+      scores.innerText = scoreBoard
+      squares[snake[0]].classList.remove('fuel')
+      snake.unshift(snake[0])
+      fuel()
+
+    }
+
     drawSnake()
+    setTimeout(moveSnake, snakeSpeed)
+
   }
 
+  moveSnake()
 
 
   function moveDown(){
@@ -96,10 +104,10 @@ document.addEventListener('DOMContentLoaded', () =>{
 
   function snakeDeath() {
     grid.classList.remove('grid')
-    clearInterval(snakeMoving)
+    clearInterval(moveSnake)
   }
 
-  function moveLeft(){
+  function moveLeft() {
     eraseSnake()
     snake.pop()
     snake.unshift(snake[0] - 1)
