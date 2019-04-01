@@ -19,6 +19,12 @@ body {
   align-self: center;
 }
 
+.button {
+  font-family: 'Press Start 2P', cursive;
+  display: flex;
+  align-self: center;
+}
+
 h1 {
   justify-content: flex-start;
   align-items: baseline;
@@ -26,11 +32,22 @@ h1 {
 }
 
 .scores {
+  display: flex;
+  align-items: center;
   font-size: 50px;
+  color: yellow;
 }
 
 .snake {
-  background-image: url(images/FlyingDragon.gif_c200);
+  background-image: url(images/plasma.gif);
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  align-items: center;
+}
+
+.drawSnake {
+
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;

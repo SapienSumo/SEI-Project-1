@@ -5,8 +5,9 @@ document.addEventListener('DOMContentLoaded', () =>{
   const scores = document.querySelector('.scores')
   const width = 18
   const squares = []
-  const snake = [111,112,113,114]
+  const snake = [113,114,115]
   let scoreBoard = 0
+  const snakeMoving = setInterval(moveSnake, 100)
   let direction = 'right'
   //const chosenSquare = 0
 
@@ -54,7 +55,7 @@ document.addEventListener('DOMContentLoaded', () =>{
           snake[0] % width === width -1  && direction === 'right' ||
           snake[0] - width < 0  && direction === 'up' ||
           snake[0] >= width * (width - 1 )  && direction === 'down') {
-      return false
+      return snakeDeath()
 
     }
 
@@ -78,8 +79,6 @@ document.addEventListener('DOMContentLoaded', () =>{
   }
 
 
-  setInterval(moveSnake, 100)
-
 
   function moveDown(){
     eraseSnake()
@@ -93,6 +92,11 @@ document.addEventListener('DOMContentLoaded', () =>{
     snake.pop()
     snake.unshift(snake[0] - width)
     drawSnake()
+  }
+
+  function snakeDeath() {
+    grid.classList.remove('grid')
+    clearInterval(snakeMoving)
   }
 
   function moveLeft(){
@@ -114,13 +118,13 @@ document.addEventListener('DOMContentLoaded', () =>{
   document.addEventListener('keydown', (e) => {
     console.log(e.keyCode)
     switch(e.keyCode) {
-      case 37: direction = 'left'
+      case 37: if(direction !== 'right') direction = 'left'
         break
-      case 38: direction = 'up'
+      case 38: if(direction !== 'down') direction = 'up'
         break
-      case 39: direction = 'right'
+      case 39: if(direction !== 'left') direction = 'right'
         break
-      case 40: direction = 'down'
+      case 40: if(direction !== 'up')  direction = 'down'
         break
     }
   })
