@@ -2,11 +2,13 @@ console.log('JS loaded')
 document.addEventListener('DOMContentLoaded', () =>{
 
   const grid = document.querySelector('.grid')
+  const scores = document.querySelector('.scores')
   const width = 18
   const squares = []
   const snake = [111,112,113,114]
+  let scoreBoard = 0
   let direction = 'right'
-  // const fuel = [171]
+  //const chosenSquare = 0
 
 
 
@@ -15,6 +17,7 @@ document.addEventListener('DOMContentLoaded', () =>{
     squares.push(square)
     grid.appendChild(square)
   }
+
   function fuel(){
     const chosenSquare = squares[Math.floor(Math.random() * squares.length)]
     chosenSquare.classList.add('fuel')
@@ -22,27 +25,45 @@ document.addEventListener('DOMContentLoaded', () =>{
   }
 
   fuel()
-
+  // snake will now show on the board
   function drawSnake() {
     console.log('draw')
     snake.forEach(index => squares[index].classList.add('snake'))
   }
 
+  // snake will no longer grow endlessly, tail now has an end.
   function eraseSnake() {
     console.log('erase')
     snake.forEach(index => squares[index].classList.remove('snake'))
   }
 
+  //========================================================
+
+  // define movement of the snake/directions
+
   function moveSnake() {
+    if (squares[snake[0]].classList.contains('fuel')) {
+      scoreBoard++
+      scores.innerText = scoreBoard
+      squares[snake[0]].classList.remove('fuel')
+      snake.unshift(snake[0])
+      fuel()
+    }
+
     if (snake[0] % width === 0 && direction === 'left' ||
           snake[0] % width === width -1  && direction === 'right' ||
           snake[0] - width < 0  && direction === 'up' ||
           snake[0] >= width * (width - 1 )  && direction === 'down') {
       return false
+
     }
 
+    //collision with snake tail
+    // if(snake.slice(1).includes(snake[0])){
+    // game over
+    // }
 
-    console.log(snake)
+
     eraseSnake()
     switch(direction){
       case 'right': moveRight()
@@ -56,7 +77,6 @@ document.addEventListener('DOMContentLoaded', () =>{
     drawSnake()
   }
 
-  drawSnake()
 
   setInterval(moveSnake, 100)
 

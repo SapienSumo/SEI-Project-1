@@ -3,6 +3,9 @@
 }
 
 body {
+  font-family: 'Press Start 2P', cursive;
+  font-size: 20px;
+  color: white;
   align-items: center;
   display: flex;
   height: 100vh;
@@ -11,8 +14,23 @@ body {
   background-image: url("images/space-background.gif");
 }
 
+.container > div {
+  display: flex;
+  align-self: center;
+}
+
+h1 {
+  justify-content: flex-start;
+  align-items: baseline;
+
+}
+
+.scores {
+  font-size: 50px;
+}
+
 .snake {
-  background-image: url(images/smolFball.gif);
+  background-image: url(images/FlyingDragon.gif_c200);
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
@@ -20,7 +38,7 @@ body {
 }
 
 .fuel {
-  background-image: url(images/violetpulse.gif);
+  background-image: url(images/SpinMerc.gif);
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
