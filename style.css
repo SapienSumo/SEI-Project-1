@@ -11,8 +11,11 @@ body {
   height: 100vh;
   justify-content: center;
   margin: 0;
-  background-image: url("images/space-background.gif");
+  background-image: url("images/deaht.gif");
+  background-size: contain;
+
 }
+
 
 .container > div {
   display: flex;
@@ -20,6 +23,13 @@ body {
   justify-content: center;
   margin: auto;
 }
+
+/* img { */
+  /* display: flex; */
+  /* align-items: flex-start; */
+  /* height: 200px; */
+  /* width: 200px; */
+/* } */
 
 .button {
   font-family: 'Press Start 2P', cursive;
@@ -37,11 +47,11 @@ h1 {
   display: flex;
   align-items: center;
   font-size: 50px;
-  color: yellow;
+  color: white;
 }
 
 .snake {
-  background-image: url(images/plasma.gif);
+  background-image: url(images/humanity.gif);
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
@@ -57,7 +67,7 @@ h1 {
 }
 
 .fuel {
-  background-image: url(images/SpinMerc.gif);
+  background-image: url(images/blueexplo.gif);
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;

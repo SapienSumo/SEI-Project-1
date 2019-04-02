@@ -149,6 +149,7 @@ document.addEventListener('DOMContentLoaded', () =>{
 })
 
 
+
 //  get from JS
 // Define the snake array
 // Assign those four squares a class of active  = snake
