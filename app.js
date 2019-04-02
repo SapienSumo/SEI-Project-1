@@ -6,11 +6,12 @@ document.addEventListener('DOMContentLoaded', () =>{
 
   const width = 18
   const squares = []
-  const snake = [3,2,1,0]
+  let snake = [3,2,1,0]
   let scoreBoard = 0
   let snakeSpeed = 250
   //const snakeMoving = setInterval(moveSnake, 100)
   let direction = 'right'
+  const resetButton = document.querySelector('button')
   //const chosenSquare = 0
 
 
@@ -20,6 +21,7 @@ document.addEventListener('DOMContentLoaded', () =>{
     grid.appendChild(square)
   }
 
+  //Defining the gameOver function
   function gameOver() {
     grid.classList.remove('grid')
   }
@@ -32,19 +34,14 @@ document.addEventListener('DOMContentLoaded', () =>{
     }
   }
 
-  // function reset() {
-  // console.log('reset()')
-  // if (snake.slice(1).includes([width])) {
-  // return gameOver()
-  // }
-  // reset()
-  // }
-
   function fuel(){
     const chosenSquare = squares[Math.floor(Math.random() * squares.length)]
     chosenSquare.classList.add('fuel')
     console.log(chosenSquare)
   }
+
+  // function reset() {
+  // }
 
   fuel()
   // snake will now show on the board
@@ -153,19 +150,32 @@ document.addEventListener('DOMContentLoaded', () =>{
       case 40: if(direction !== 'up')  direction = 'down'
         break
     }
+
+  })
+  resetButton.addEventListener('click', () => {
+    snake.forEach(index => squares[index].classList.remove('snake'))
+    snake = [3,2,1,0]
+    scoreBoard.innerText = 0
+    grid.classList.add('grid')
+    direction = 'right'
+    snakeSpeed -= -250
+
+
+    drawSnake()
+    moveSnake()
   })
 })
 
 
 
-//  get from JS
+// Get from JS
 // Define the snake array
 // Assign those four squares a class of active  = snake
 // Define starting position of the snake
 // Define movement of snake
-//    add event listener to each movement key
+// Add event listener to each movement key
 // Create a push/pop function to roll snake along
-//    incoporating a loop
+// Incoporating a loop
 // Generate a random number
 // Store in a variable (i.e let apple)
 // Give random square a class of apple (like active)
