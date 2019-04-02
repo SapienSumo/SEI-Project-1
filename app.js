@@ -3,21 +3,33 @@ document.addEventListener('DOMContentLoaded', () =>{
 
   const grid = document.querySelector('.grid')
   const scores = document.querySelector('.scores')
+
   const width = 18
   const squares = []
-  const snake = [113,114,115]
+  const snake = [3,2,1,0]
   let scoreBoard = 0
-  let snakeSpeed = 150
+  let snakeSpeed = 250
   //const snakeMoving = setInterval(moveSnake, 100)
   let direction = 'right'
   //const chosenSquare = 0
-
 
 
   for(let i = 0; i < width * width; i++) {
     const square = document.createElement('div')
     squares.push(square)
     grid.appendChild(square)
+  }
+
+  function gameOver() {
+    grid.classList.remove('grid')
+  }
+
+  function dieSnake() {
+    console.log('dieSnake()')
+    if(snake.slice(1).includes([0])) {
+      return gameOver()
+
+    }
   }
 
   function fuel(){
@@ -46,10 +58,11 @@ document.addEventListener('DOMContentLoaded', () =>{
   function moveSnake() {
 
     if (snake[0] % width === 0 && direction === 'left' ||
-          snake[0] % width === width -1  && direction === 'right' ||
-          snake[0] - width < 0  && direction === 'up' ||
-          snake[0] >= width * (width - 1 )  && direction === 'down') {
-      return snakeDeath()
+      snake[0] % width === width -1  && direction === 'right' ||
+      snake[0] - width < 0  && direction === 'up' ||
+      snake[0] >= width * (width - 1 )  && direction === 'down' ||
+      snake.slice(1).includes(snake[0])) {
+      return gameOver()
 
     }
 
@@ -58,8 +71,8 @@ document.addEventListener('DOMContentLoaded', () =>{
     // game over
     // }
 
-
     eraseSnake()
+
     switch(direction){
       case 'right': moveRight()
         break
@@ -70,18 +83,20 @@ document.addEventListener('DOMContentLoaded', () =>{
       case 'down': moveDown()
     }
 
+
     if (squares[snake[0]].classList.contains('fuel')) {
       scoreBoard++
       snakeSpeed -= 10
       scores.innerText = scoreBoard
       squares[snake[0]].classList.remove('fuel')
-      snake.unshift(snake[0])
+      snake.push(snake[snake.length-1])
       fuel()
 
     }
 
     drawSnake()
     setTimeout(moveSnake, snakeSpeed)
+    dieSnake()
 
   }
 
@@ -100,11 +115,6 @@ document.addEventListener('DOMContentLoaded', () =>{
     snake.pop()
     snake.unshift(snake[0] - width)
     drawSnake()
-  }
-
-  function snakeDeath() {
-    grid.classList.remove('grid')
-    clearInterval(moveSnake)
   }
 
   function moveLeft() {
