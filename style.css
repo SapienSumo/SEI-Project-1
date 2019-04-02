@@ -5,15 +5,21 @@
 body {
   font-family: 'Press Start 2P', cursive;
   font-size: 20px;
-  color: white;
+  color: purple;
   align-items: center;
   display: flex;
   height: 100vh;
   justify-content: center;
   margin: 0;
-  background-image: url("images/deaht.gif");
+  background-image: url("images/backgrounds/deaht.gif");
   background-size: contain;
 
+}
+
+.table {
+  align-items: center;
+  align-content: center;
+  flex-direction: column;
 }
 
 
@@ -42,11 +48,11 @@ h1 {
   display: flex;
   align-items: center;
   font-size: 50px;
-  color: white;
+  color: purple;
 }
 
 .snake {
-  background-image: url(images/humanity.gif);
+  background-image: url(images/ghosts/classicghost.gif);
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
@@ -62,7 +68,7 @@ h1 {
 }
 
 .fuel {
-  background-image: url(images/blueexplo.gif);
+  background-image: url(images/fireballs/blueexplo.gif);
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
@@ -74,7 +80,7 @@ button {
   border-color: transparent;
   font-family: 'Press Start P2', cursive;
   font-size: 50px;
-  color: white;
+  color: purple;
 }
 
 .grid {
@@ -86,8 +92,7 @@ button {
   justify-content: center;
   max-height: 600px;
   max-width: 600px;
-  /*box-shadow: orange;
-   border-style: transparent; */
+  /* border-style: transparent; */
 }
 
 .grid div {

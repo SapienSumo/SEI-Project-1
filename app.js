@@ -32,6 +32,14 @@ document.addEventListener('DOMContentLoaded', () =>{
     }
   }
 
+  // function reset() {
+  // console.log('reset()')
+  // if (snake.slice(1).includes([width])) {
+  // return gameOver()
+  // }
+  // reset()
+  // }
+
   function fuel(){
     const chosenSquare = squares[Math.floor(Math.random() * squares.length)]
     chosenSquare.classList.add('fuel')
