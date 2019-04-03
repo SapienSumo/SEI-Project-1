@@ -41,16 +41,11 @@ document.addEventListener('DOMContentLoaded', () =>{
     while(squares[randomIndex].classList.contains('snake')) {
       randomIndex = Math.floor(Math.random()* squares.length)
     }
-
-    squares[randomIndex].classList.add('fuel')
     chosenSquare.classList.add('fuel')
     if(chosenSquare.classList.contains('snake')){
-      fuel()
+      // fuel()
     }
   }
-
-  // function reset() {
-  // }
 
   fuel()
   // snake will now show on the board
