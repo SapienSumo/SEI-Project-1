@@ -7,6 +7,7 @@ document.addEventListener('DOMContentLoaded', () =>{
   const squares = []
   let snake = [3,2,1,0]
   let scoreBoard = 0
+  let randomIndex = 0
   //let timer
   let snakeSpeed = 400
   //const snakeMoving = setInterval(moveSnake, 100)
@@ -27,6 +28,16 @@ document.addEventListener('DOMContentLoaded', () =>{
   }
 
 
+  // "Attempt to refactor code to make this part work in order to create 3
+  // seperate parts for the snake 'head', 'tail' and 'body'"
+  // function moreSnake() {
+  // const tail = snake.pop()
+  // squares[tail].classList.remove('snake')
+  // const head = snake[0] + direction
+  // squares[head].classList.add('snake')
+  // }
+
+
   function dieSnake() {
     console.log('dieSnake()')
     if(snake.slice(1).includes([0])) {
@@ -36,16 +47,17 @@ document.addEventListener('DOMContentLoaded', () =>{
   }
 
   function fuel(){
-    const chosenSquare = squares[Math.floor(Math.random() * squares.length)]
-    let randomIndex = Math.floor(Math.random()*squares.length)
+    // const chosenSquare = squares[Math.floor(Math.random() * squares.length)]
+    let randomIndex = Math.floor(Math.random() * squares.length)
     while(squares[randomIndex].classList.contains('snake')) {
-      randomIndex = Math.floor(Math.random()* squares.length)
+      randomIndex = Math.floor(Math.random() * squares.length)
     }
-    chosenSquare.classList.add('fuel')
-    if(chosenSquare.classList.contains('snake')){
-      // fuel()
-    }
+    squares[randomIndex].classList.add('fuel')
+    // chosenSquare.classList.add('fuel')
+    // if(chosenSquare.classList.contains('snake')){
+    // fuel()
   }
+
 
   fuel()
   // snake will now show on the board
