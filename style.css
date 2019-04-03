@@ -30,13 +30,6 @@ body {
   margin: auto;
 }
 
-/* img { */
-  /* display: flex; */
-  /* align-items: flex-start; */
-  /* height: 200px; */
-  /* width: 200px; */
-/* } */
-
 
 h1 {
   justify-content: flex-start;
@@ -45,8 +38,6 @@ h1 {
 }
 
 .scores {
-  display: flex;
-  align-items: center;
   font-size: 50px;
   color: purple;
 }
@@ -81,6 +72,18 @@ button {
   font-family: 'Press Start 2P', cursive;
   font-size: 50px;
   color: purple;
+}
+
+.spinGhost {
+  height: 200px;
+  width: 200px;
+}
+
+.arrows {
+  height: 150px;
+  width: 180px;
+  display: flex;
+  align-content: center;
 }
 
 .grid {

@@ -3,11 +3,11 @@ document.addEventListener('DOMContentLoaded', () =>{
 
   const grid = document.querySelector('.grid')
   const scores = document.querySelector('.scores')
-
   const width = 18
   const squares = []
   let snake = [3,2,1,0]
   let scoreBoard = 0
+  //let timer
   let snakeSpeed = 250
   //const snakeMoving = setInterval(moveSnake, 100)
   let direction = 'right'
@@ -61,7 +61,6 @@ document.addEventListener('DOMContentLoaded', () =>{
   // define movement of the snake/directions
 
   function moveSnake() {
-
     if (snake[0] % width === 0 && direction === 'left' ||
       snake[0] % width === width -1  && direction === 'right' ||
       snake[0] - width < 0  && direction === 'up' ||
@@ -96,7 +95,6 @@ document.addEventListener('DOMContentLoaded', () =>{
       squares[snake[0]].classList.remove('fuel')
       snake.push(snake[snake.length-1])
       fuel()
-
     }
 
     drawSnake()
@@ -152,13 +150,15 @@ document.addEventListener('DOMContentLoaded', () =>{
     }
 
   })
+
   resetButton.addEventListener('click', () => {
     snake.forEach(index => squares[index].classList.remove('snake'))
     snake = [3,2,1,0]
-    scoreBoard.innerText = 0
+    scoreBoard = 0
+    scores.innerText = scoreBoard
     grid.classList.add('grid')
     direction = 'right'
-    snakeSpeed -= -250
+    snakeSpeed -= -100
 
 
     drawSnake()
