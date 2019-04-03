@@ -8,15 +8,15 @@ document.addEventListener('DOMContentLoaded', () =>{
   let snake = [3,2,1,0]
   let scoreBoard = 0
   //let timer
-  let snakeSpeed = 250
+  let snakeSpeed = 400
   //const snakeMoving = setInterval(moveSnake, 100)
   let direction = 'right'
   const resetButton = document.querySelector('button')
   //const chosenSquare = 0
 
-
   for(let i = 0; i < width * width; i++) {
     const square = document.createElement('div')
+
     squares.push(square)
     grid.appendChild(square)
   }
@@ -25,6 +25,7 @@ document.addEventListener('DOMContentLoaded', () =>{
   function gameOver() {
     grid.classList.remove('grid')
   }
+
 
   function dieSnake() {
     console.log('dieSnake()')
@@ -36,8 +37,16 @@ document.addEventListener('DOMContentLoaded', () =>{
 
   function fuel(){
     const chosenSquare = squares[Math.floor(Math.random() * squares.length)]
+    let randomIndex = Math.floor(Math.random()*squares.length)
+    while(squares[randomIndex].classList.contains('snake')) {
+      randomIndex = Math.floor(Math.random()* squares.length)
+    }
+
+    squares[randomIndex].classList.add('fuel')
     chosenSquare.classList.add('fuel')
-    console.log(chosenSquare)
+    if(chosenSquare.classList.contains('snake')){
+      fuel()
+    }
   }
 
   // function reset() {
@@ -65,6 +74,7 @@ document.addEventListener('DOMContentLoaded', () =>{
       snake[0] % width === width -1  && direction === 'right' ||
       snake[0] - width < 0  && direction === 'up' ||
       snake[0] >= width * (width - 1 )  && direction === 'down' ||
+
       snake.slice(1).includes(snake[0])) {
       return gameOver()
 
