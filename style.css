@@ -16,19 +16,8 @@ body {
 
 }
 
-.table {
-  align-items: center;
-  align-content: center;
-  flex-direction: column;
-}
 
-
-.container > div {
-  display: flex;
-  align-self: center;
-  justify-content: center;
-  margin: auto;
-}
+/* ================================================================== */
 
 
 h1 {
@@ -37,10 +26,14 @@ h1 {
   align-content: center;
 }
 
+
+
 .scores {
-  font-size: 50px;
+  font-size: 30px;
   color: purple;
 }
+
+
 
 .snake {
   background-image: url(images/ghosts/pixlepac.gif);
@@ -50,6 +43,8 @@ h1 {
   align-items: center;
 }
 
+
+
 .drawSnake {
 
   background-size: contain;
@@ -57,6 +52,8 @@ h1 {
   background-repeat: no-repeat;
   align-items: center;
 }
+
+
 
 .fuel {
   background-image: url(images/ghosts/classicghost.gif);
@@ -66,6 +63,8 @@ h1 {
   align-items: center;
 }
 
+
+
 button {
   background-color: transparent;
   border-color: transparent;
@@ -74,10 +73,14 @@ button {
   color: purple;
 }
 
+
+
 .spinGhost {
   height: 200px;
   width: 200px;
 }
+
+
 
 .arrows {
   height: 150px;
@@ -85,6 +88,8 @@ button {
   display: flex;
   align-content: center;
 }
+
+
 
 .grid {
   align-items: center;
@@ -95,13 +100,13 @@ button {
   justify-content: center;
   max-height: 600px;
   max-width: 600px;
-  /* border-style: transparent; */
+  margin: auto;
 }
 
+
+
 .grid div {
-  flex-grow: 1;
   height: 33.33px;
   width: 33.33px;
   border: 1px solid lightgrey;
-  border-style: groove;
 }
