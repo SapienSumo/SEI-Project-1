@@ -94,7 +94,7 @@ button {
   display: flex;
   flex-grow: 1;
   flex-wrap: wrap;
-  height: 100%;
+  height: 80vh;
   justify-content: center;
   max-height: 600px;
   max-width: 600px;
@@ -103,8 +103,6 @@ button {
 
 .grid div {
   flex-grow: 1;
-  height: 33.33px;
-  width: 33.33px;
   border: 1px solid purple;
 
 }

@@ -5,6 +5,7 @@ document.addEventListener('DOMContentLoaded', () =>{
   const scores = document.querySelector('.scores')
   const width = 18
   const squares = []
+  const mySound = document.querySelector('audio')
   let snake = [3,2,1,0]
   let scoreBoard = 0
   let randomIndex = 0
@@ -17,7 +18,8 @@ document.addEventListener('DOMContentLoaded', () =>{
 
   for(let i = 0; i < width * width; i++) {
     const square = document.createElement('div')
-
+    square.style.width = `calc(100%/${width})`
+    square.style.height = `calc(100%/${width})`
     squares.push(square)
     grid.appendChild(square)
   }
@@ -30,12 +32,12 @@ document.addEventListener('DOMContentLoaded', () =>{
 
   // "Attempt to refactor code to make this part work in order to create 3
   // seperate parts for the snake 'head', 'tail' and 'body'"
-  // function moreSnake() {
-  // const tail = snake.pop()
-  // squares[tail].classList.remove('snake')
-  // const head = snake[0] + direction
-  // squares[head].classList.add('snake')
-  // }
+  function gameSound() {
+    mySound.src = 'audio/castlevania.mp3'
+    // if(mySound.currentTime !== 0) mySound.currentTime = 0
+    mySound.play()
+  }
+
 
 
   function dieSnake() {
@@ -52,10 +54,8 @@ document.addEventListener('DOMContentLoaded', () =>{
     while(squares[randomIndex].classList.contains('snake')) {
       randomIndex = Math.floor(Math.random() * squares.length)
     }
+
     squares[randomIndex].classList.add('fuel')
-    // chosenSquare.classList.add('fuel')
-    // if(chosenSquare.classList.contains('snake')){
-    // fuel()
   }
 
 
@@ -87,11 +87,6 @@ document.addEventListener('DOMContentLoaded', () =>{
 
     }
 
-    //collision with snake tail
-    // if(snake.slice(1).includes(snake[0])){
-    // game over
-    // }
-
     eraseSnake()
 
     switch(direction){
@@ -102,6 +97,34 @@ document.addEventListener('DOMContentLoaded', () =>{
       case 'up': moveUp()
         break
       case 'down': moveDown()
+    }
+
+    function drawHead(vector) {
+      const head = snake[0] + vector
+      snake.unshift(head)
+      squares[head].classList.add('snake')
+      squares[head].setAttribute('data-direction', direction)
+    }
+
+    function eraseTail() {
+      const tail = snake.pop()
+      squares[tail].classList.remove('snake')
+      squares[tail].removeAttribute('data-direction')
+    }
+
+    function drawSnake() {
+      console.log('drawing snake')
+      snake.forEach(index => {
+        squares[index].classList.add('snake')
+        squares[index].setAttribute('data-direction', direction)
+      })
+    }
+    function eraseSnake() {
+      console.log('removing snake')
+      snake.forEach(index => {
+        squares[index].classList.remove('snake')
+        squares[index].removeAttribute('data-direction')
+      })
     }
 
 
@@ -180,10 +203,11 @@ document.addEventListener('DOMContentLoaded', () =>{
 
     drawSnake()
     moveSnake()
+
   })
+  gameSound()
+  console.log(gameSound)
 })
-
-
 
 // Get from JS
 // Define the snake array
