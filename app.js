@@ -98,7 +98,7 @@ document.addEventListener('DOMContentLoaded', () =>{
     snake.forEach(index => squares[index].classList.remove('snake'))
   }
 
-  //========================================================
+  //=====================================================================
 
   // Define movement of the snake/directions
   function moveSnake() {
