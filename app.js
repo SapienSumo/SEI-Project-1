@@ -9,12 +9,10 @@ document.addEventListener('DOMContentLoaded', () =>{
   let snake = [3,2,1,0]
   let scoreBoard = 0
   let randomIndex = 0
-  //let timer
   let snakeSpeed = 400
-  //const snakeMoving = setInterval(moveSnake, 100)
   let direction = 'right'
   const resetButton = document.querySelector('button')
-  //const chosenSquare = 0
+  document.querySelector('.death')
 
   for(let i = 0; i < width * width; i++) {
     const square = document.createElement('div')
@@ -26,14 +24,19 @@ document.addEventListener('DOMContentLoaded', () =>{
 
   //Defining the gameOver function
   function gameOver() {
+    eraseSnake()
     grid.classList.remove('grid')
+    grid.classList.add('death')
+    mySound.src = 'audio/youdied.mp3'
+    snakeSpeed = 400
+    mySound.play()
   }
-
 
   // "Attempt to refactor code to make this part work in order to create 3
   // seperate parts for the snake 'head', 'tail' and 'body'"
   function gameSound() {
     mySound.src = 'audio/castlevania.mp3'
+    // while(grid)
     // if(mySound.currentTime !== 0) mySound.currentTime = 0
     mySound.play()
   }
@@ -188,7 +191,6 @@ document.addEventListener('DOMContentLoaded', () =>{
       case 40: if(direction !== 'up')  direction = 'down'
         break
     }
-
   })
 
   resetButton.addEventListener('click', () => {
@@ -196,13 +198,15 @@ document.addEventListener('DOMContentLoaded', () =>{
     snake = [3,2,1,0]
     scoreBoard = 0
     scores.innerText = scoreBoard
+    grid.classList.remove('death')
     grid.classList.add('grid')
     direction = 'right'
-    snakeSpeed -= -100
+    snakeSpeed -= -400
 
 
     drawSnake()
     moveSnake()
+    gameSound()
 
   })
   gameSound()

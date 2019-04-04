@@ -13,6 +13,7 @@ body {
   margin: 0;
   background-image: url("images/backgrounds/deaht.gif");
   background-size: contain;
+  overflow: hidden;
 
 }
 
@@ -27,6 +28,13 @@ body {
   margin-left: 200px;
 }
 
+.death {
+  background-image: url('images/backgrounds/youdied-souls.jpg');
+  align-self: center;
+  height: 400px;
+  width: 950px;
+  background-repeat: no-repeat;
+}
 
 .container > div {
   display: flex;
@@ -75,6 +83,11 @@ button {
   font-family: 'Nosifer', cursive;
   font-size: 50px;
   color: purple;
+  outline: none;
+}
+
+a {
+  text-decoration: none;
 }
 
 .spinGhost {
