@@ -1,17 +1,42 @@
+// Get from JS
+// Define the snake array
+// Assign those four squares a class of active  = snake
+// Define starting position of the snake
+// Define movement of snake
+// Add event listener to each movement key
+// Create a push/pop function to roll snake along
+// Incoporating a loop
+// Generate a random number
+// Store in a variable (i.e let apple)
+// Give random square a class of apple (like active)
+// Display apple
+// To be continued ...
+
 console.log('JS loaded')
 document.addEventListener('DOMContentLoaded', () =>{
 
+  //Defining the grid
   const grid = document.querySelector('.grid')
+  //Getting the scores
   const scores = document.querySelector('.scores')
+  //Width of the grid
   const width = 18
+  //Grid Squares
   const squares = []
+  //Getting the audio from the HTML
   const mySound = document.querySelector('audio')
+  //Snake starting position
   let snake = [3,2,1,0]
+  //Defining the starting score for the scoreBoard
   let scoreBoard = 0
-  let randomIndex = 0
+  // let randomIndex = 0
+  //"Snake's" starting speed
   let snakeSpeed = 400
+  //Starting direction of the snake
   let direction = 'right'
+  //Getting the reset button from the HTML
   const resetButton = document.querySelector('button')
+  //Defining death screen for gameOver
   document.querySelector('.death')
 
   for(let i = 0; i < width * width; i++) {
@@ -32,17 +57,15 @@ document.addEventListener('DOMContentLoaded', () =>{
     mySound.play()
   }
 
-  // "Attempt to refactor code to make this part work in order to create 3
-  // seperate parts for the snake 'head', 'tail' and 'body'"
+
+  // Creating audio function to play in the background of the game
   function gameSound() {
     mySound.src = 'audio/castlevania.mp3'
-    // while(grid)
-    // if(mySound.currentTime !== 0) mySound.currentTime = 0
     mySound.play()
   }
 
 
-
+  // Function for snake death on contact with tail
   function dieSnake() {
     console.log('dieSnake()')
     if(snake.slice(1).includes([0])) {
@@ -51,8 +74,8 @@ document.addEventListener('DOMContentLoaded', () =>{
     }
   }
 
+  //Food spawns(food cannot spawn in the tail)
   function fuel(){
-    // const chosenSquare = squares[Math.floor(Math.random() * squares.length)]
     let randomIndex = Math.floor(Math.random() * squares.length)
     while(squares[randomIndex].classList.contains('snake')) {
       randomIndex = Math.floor(Math.random() * squares.length)
@@ -77,8 +100,7 @@ document.addEventListener('DOMContentLoaded', () =>{
 
   //========================================================
 
-  // define movement of the snake/directions
-
+  // Define movement of the snake/directions
   function moveSnake() {
     if (snake[0] % width === 0 && direction === 'left' ||
       snake[0] % width === width -1  && direction === 'right' ||
@@ -90,6 +112,7 @@ document.addEventListener('DOMContentLoaded', () =>{
 
     }
 
+    //Calling the erase function
     eraseSnake()
 
     switch(direction){
@@ -102,18 +125,18 @@ document.addEventListener('DOMContentLoaded', () =>{
       case 'down': moveDown()
     }
 
-    function drawHead(vector) {
-      const head = snake[0] + vector
-      snake.unshift(head)
-      squares[head].classList.add('snake')
-      squares[head].setAttribute('data-direction', direction)
-    }
+    // function drawHead(vector) {
+    // const head = snake[0] + vector
+    // snake.unshift(head)
+    // squares[head].classList.add('snake')
+    // squares[head].setAttribute('data-direction', direction)
+    // }
 
-    function eraseTail() {
-      const tail = snake.pop()
-      squares[tail].classList.remove('snake')
-      squares[tail].removeAttribute('data-direction')
-    }
+    // function eraseTail() {
+    // const tail = snake.pop()
+    // squares[tail].classList.remove('snake')
+    // squares[tail].removeAttribute('data-direction')
+    // }
 
     function drawSnake() {
       console.log('drawing snake')
@@ -212,17 +235,3 @@ document.addEventListener('DOMContentLoaded', () =>{
   gameSound()
   console.log(gameSound)
 })
-
-// Get from JS
-// Define the snake array
-// Assign those four squares a class of active  = snake
-// Define starting position of the snake
-// Define movement of snake
-// Add event listener to each movement key
-// Create a push/pop function to roll snake along
-// Incoporating a loop
-// Generate a random number
-// Store in a variable (i.e let apple)
-// Give random square a class of apple (like active)
-// Display apple
-// To be continued ...
