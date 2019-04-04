@@ -16,34 +16,42 @@ body {
 
 }
 
+.KingBoomBam {
+  height: 100px;
+  width: 120px;
+  display: flex;
+  align-self: flex-start;
+}
 
-/* ================================================================== */
+.contents {
+  margin-left: 200px;
+}
+
+
+.container > div {
+  display: flex;
+  align-items: center;
+  margin: auto;
+
+}
 
 
 h1 {
-  display: flex;
-  justify-content: center;
-  align-content: center;
+  text-align: center;
 }
 
-
-
 .scores {
-  font-size: 30px;
+  font-size: 50px;
   color: purple;
 }
 
-
-
 .snake {
-  background-image: url(images/ghosts/pixlepac.gif);
-  background-size: contain;
+  background-image: url(images/ghosts/ghostbusta.gif);
+  background-size: 60px;
   background-position: center;
   background-repeat: no-repeat;
   align-items: center;
 }
-
-
 
 .drawSnake {
 
@@ -53,17 +61,13 @@ h1 {
   align-items: center;
 }
 
-
-
 .fuel {
-  background-image: url(images/ghosts/classicghost.gif);
+  background-image: url(images/ghosts/ghoul.gif);
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
   align-items: center;
 }
-
-
 
 button {
   background-color: transparent;
@@ -73,14 +77,10 @@ button {
   color: purple;
 }
 
-
-
 .spinGhost {
   height: 200px;
   width: 200px;
 }
-
-
 
 .arrows {
   height: 150px;
@@ -88,8 +88,6 @@ button {
   display: flex;
   align-content: center;
 }
-
-
 
 .grid {
   align-items: center;
@@ -100,13 +98,13 @@ button {
   justify-content: center;
   max-height: 600px;
   max-width: 600px;
-  margin: auto;
+  margin-left: 100px;
 }
 
-
-
 .grid div {
+  flex-grow: 1;
   height: 33.33px;
   width: 33.33px;
-  border: 1px solid lightgrey;
+  border: 1px solid purple;
+
 }
