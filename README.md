@@ -54,6 +54,8 @@ There were many challenges in the creation of this game, but one notable challen
 ### Wins
 Th game is working and running without and hitches, all of the bugs I had are finally ironed out and I have a cohesive theme that really brings my game to life. I also managed to fix all the CSS issues I had with centring my content and images, overall making my game look much nicer and smoother to play.
 
+![wins](/images/readme/Wins.png)
+
 ### Future features
 When I return to this project I will be adding nicer features like a starting page, things like:
 

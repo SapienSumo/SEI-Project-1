@@ -13,7 +13,7 @@ body {
   margin: 0;
   background-image: url("images/backgrounds/deaht.gif");
   background-size: contain;
-  overflow: hidden;
+  /* overflow: hidden; */
 }
 
 .KingBoomBam {
