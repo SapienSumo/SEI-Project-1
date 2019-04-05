@@ -34,9 +34,12 @@ _When you spawn into the game, the ghostbusters will immediately start marching,
 ## Process of Creating Snake
 To create this game, I used various programs and coding languages (JavaScript, HTML5 & CSS) in ATOM. Along side external platforms like "ezgif.com" and "pixlr.com" for image editing. To get started I first created a "grid" class for divs in my HTML file in order to define them better in the CSS and JS files, I then gave the grid some styling so I could see them in the browser. I then gave the gird dimensions in the JS and began styling it and then repeated the same for the creation of the snake, with the addition of directional logic for the snake.
 
+![You Died](/images/readme/die.png)
+
 *Time management*
 In order to manage my time, I got started on a Trello and created a list of things to complete and tracked the things I could and could not finish.
 ![Trello](/images/readme/trello.png)
+
 * How I would do things next time
 I would try and manage my time a little better and focus on adding more features before worrying about styling.
 
@@ -49,7 +52,15 @@ There were many challenges in the creation of this game, but one notable challen
 
 
 ### Wins
-_Describe the wins. What are you most proud of? What did this project help you to understand the most?_
+Th game is working and running without and hitches, all of the bugs I had are finally ironed out and I have a cohesive theme that really brings my game to life. I also managed to fix all the CSS issues I had with centring my content and images, overall making my game look much nicer and smoother to play.
 
 ## Future features
-_If you were to revisit this project in the future what features would you add?_
+When I return to this project I will be adding nicer features like a starting page, things like:
+
+* Image flipping for the ghostbusters as they turn direction
+
+* Sounds upon capturing ghouls & body growth
+
+* A highscore record
+
+* A change in the soundtrack once you reach a certain length and a max speed cap.
