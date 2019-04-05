@@ -1,11 +1,11 @@
 # SEI-Project-1
 
-# Project 1: JavaScript Snake Game
+## Project One: JavaScript Snake Game (Ghosts & Ghouls)
 
 ### Timeframe
-7 days
+1 week
 
-## Technologies used
+### Technologies used
 
 * JavaScript (ES6)
 * HTML5
@@ -14,7 +14,7 @@
 
 * _Other technologies used: (HTML5 Audio, localStorage)_
 
-## Installation
+### Installation
 
 1. Clone or download the repo
 1. Open the `index.html` in your browser of choice
@@ -31,16 +31,16 @@ _Use the left, right, up and down arrow keys to control the direction of the Gho
 ### Game Instructions
 _When you spawn into the game, the ghostbusters will immediately start marching, use the arrow keys to keep them away from the walls and guide them towards the vile ghouls! With each ghoul you destroy, the more ghostbusters will join to your ranks. The more ghostbusters you have, the faster you will go!_
 
-## Process of Creating Snake
+### Process of Creating Snake
 To create this game, I used various programs and coding languages (JavaScript, HTML5 & CSS) in ATOM. Along side external platforms like "ezgif.com" and "pixlr.com" for image editing. To get started I first created a "grid" class for divs in my HTML file in order to define them better in the CSS and JS files, I then gave the grid some styling so I could see them in the browser. I then gave the gird dimensions in the JS and began styling it and then repeated the same for the creation of the snake, with the addition of directional logic for the snake.
 
 ![You Died](/images/readme/die.png)
 
-*Time management*
+### Time management
 In order to manage my time, I got started on a Trello and created a list of things to complete and tracked the things I could and could not finish.
 ![Trello](/images/readme/trello.png)
 
-* How I would do things next time
+### How I would do things next time
 I would try and manage my time a little better and focus on adding more features before worrying about styling.
 
 ### Challenges
@@ -54,7 +54,7 @@ There were many challenges in the creation of this game, but one notable challen
 ### Wins
 Th game is working and running without and hitches, all of the bugs I had are finally ironed out and I have a cohesive theme that really brings my game to life. I also managed to fix all the CSS issues I had with centring my content and images, overall making my game look much nicer and smoother to play.
 
-## Future features
+### Future features
 When I return to this project I will be adding nicer features like a starting page, things like:
 
 * Image flipping for the ghostbusters as they turn direction
