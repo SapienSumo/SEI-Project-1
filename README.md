@@ -30,6 +30,7 @@ _Use the left, right, up and down arrow keys to control the direction of the Gho
 
 ### Game Instructions
 _When you spawn into the game, the ghostbusters will immediately start marching, use the arrow keys to keep them away from the walls and guide them towards the vile ghouls! With each ghoul you destroy, the more ghostbusters will join to your ranks. The more ghostbusters you have, the faster you will go!_
+
 ![Ghosts & Ghouls](/images/startpage-images/You died screen.png)
 
 ## Process of Creating Snake
