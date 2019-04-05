@@ -21,14 +21,14 @@
 
 ## Overview
 
-_Screen shot_
+_Screenshot Preview_
 
 ![Ghosts](/images/backgrounds/deaht.gif)
 
-_Link to live site_
+[_Ghost Destroyer_](/images/startpage-images/Preview.png)
 
 ### Introduction
-_Description of the game_
+_This is my take on traditional snake, the theme for this game is ghosts_
 
 ### Controls
 _User controls_
